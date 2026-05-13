@@ -422,6 +422,19 @@ footer{
   }
 
 }
+  /* SCROLL ANIMATION */
+
+.reveal{
+  opacity:0;
+  transform:translateY(80px) scale(0.9);
+  transition:all 1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+  
   /* ===== MOBILE MENU ===== */
 
 .menu-toggle{
@@ -547,7 +560,7 @@ footer{
 
 <section class="hero" id="home">
 
-  <div class="hero-content">
+<div class="hero-content reveal">
 
     <p class="tag">
       Professional Construction & Tender Company
@@ -579,7 +592,7 @@ footer{
 
   </div>
 
-  <div class="hero-image">
+  <div class="hero-image reveal">
 
     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop">
 
@@ -590,7 +603,7 @@ footer{
 
 <section class="services" id="products">
 
-<div class="section-title">
+<div class="section-title reveal">
 
 <p class="tag">
 Our Products
@@ -604,7 +617,7 @@ Outdoor Gym & School Equipment
 
 <div class="service-grid">
 
-<div class="service-card">
+<div class="service-card reveal">
 
 <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
 style="width:100%;border-radius:20px;margin-bottom:20px;">
@@ -631,7 +644,7 @@ See More
 
 <section class="stats">
 
-  <div class="stat-box">
+  <div class="stat-box reveal">
     <h2>150+</h2>
     <p>Projects</p>
   </div>
@@ -657,7 +670,7 @@ See More
 
 <section class="about" id="about">
 
-  <div class="about-image">
+  <div class="about-image reveal">
 
     <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop">
 
@@ -692,7 +705,7 @@ See More
 
 <section class="services" id="services">
 
-  <div class="section-title">
+  <div class="section-title reveal">
 
     <p class="tag">
       Our Services
@@ -706,7 +719,7 @@ See More
 
   <div class="service-grid">
 
-    <div class="service-card">
+    <div class="service-card reveal">
       <h3>Construction Projects</h3>
       <p>
         Government & private construction solutions.
@@ -727,7 +740,7 @@ See More
       </p>
     </div>
 
-    <div class="service-card">
+    <div class="service-card reveal">
       <h3>Infrastructure Work</h3>
       <p>
         Road, building and infrastructure development.
@@ -741,7 +754,7 @@ See More
 
 <section class="leaders" id="story">
 
-<div class="section-title">
+<div class="section-title reveal">
 
 <p class="tag">
 Company Journey
@@ -755,7 +768,7 @@ Our Success Story
 
 <div class="leader-grid">
 
-<div class="leader-card">
+<div class="leader-card reveal">
 
 <h3>2021</h3>
 
@@ -768,7 +781,7 @@ to deliver trusted construction and trading services.
 
 </div>
 
-<div class="leader-card">
+<div class="leader-card reveal">
 
 <h3>2024</h3>
 
@@ -781,7 +794,7 @@ tender and infrastructure development projects.
 
 </div>
 
-<div class="leader-card">
+<div class="leader-card reveal">
 
 <h3>2026</h3>
 
@@ -918,6 +931,8 @@ and expanded online presence across India.
 
 <script>
 
+/* EXISTING FUNCTIONS */
+
 function showMessage(){
   alert("Thank you for contacting Shree Shyam Traders!");
 }
@@ -931,6 +946,36 @@ function closeMenu(){
   document.getElementById("mobileMenu")
   .classList.remove("active");
 }
+
+/* SCROLL REVEAL ANIMATION */
+
+window.addEventListener("scroll", reveal);
+
+function reveal(){
+
+  let reveals = document.querySelectorAll(".reveal");
+
+  for(let i = 0; i < reveals.length; i++){
+
+    let windowHeight = window.innerHeight;
+
+    let revealTop = reveals[i]
+    .getBoundingClientRect().top;
+
+    let revealPoint = 120;
+
+    if(revealTop < windowHeight - revealPoint){
+      reveals[i].classList.add("active");
+    }
+
+  }
+
+}
+
+/* PAGE LOAD PE HERO ANIMATION */
+
+reveal();
+
 
 </script>
 
