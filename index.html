@@ -443,22 +443,25 @@ footer{
 
   nav ul{
     position:absolute;
-    top:90px;
-    right:0;
+    top:85px;
+    right:-100%;
     width:260px;
     background:#0b1120;
     flex-direction:column;
     padding:30px;
-    display:none;
+    display:flex;
+    gap:25px;
     border-radius:0 0 0 25px;
+    transition:0.5s ease;
     box-shadow:0 20px 40px rgba(0,0,0,0.4);
   }
 
   nav ul.active{
-    display:flex;
+    right:0;
   }
 
 }
+  
   /* ===== DROPDOWN ===== */
 
 .dropdown{
@@ -492,29 +495,35 @@ footer{
 </head>
 
 <body>
-  <!-- ===== MOBILE MENU BUTTON ===== -->
+  <!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+  Shree Shyam Traders
+</div>
+
 <div class="menu-toggle" onclick="toggleMenu()">
   ☰
 </div>
-<!-- ===== NAVBAR MENU UPDATE ===== -->
 
 <ul id="mobileMenu">
 
-<li><a href="#home">Home</a></li>
+<li><a href="#home" onclick="closeMenu()">Home</a></li>
 
-<li><a href="#about">About</a></li>
+<li><a href="#about" onclick="closeMenu()">About</a></li>
 
-<li><a href="#work">Our Work</a></li>
+<li><a href="#products" onclick="closeMenu()">Products</a></li>
 
-<li><a href="#story">Story</a></li>
+<li><a href="#services" onclick="closeMenu()">Services</a></li>
 
-<li><a href="#services">Services</a></li>
+<li><a href="#story" onclick="closeMenu()">Story</a></li>
 
-<li><a href="#contact">Contact</a></li>
+<li><a href="#contact" onclick="closeMenu()">Contact</a></li>
 
 <li class="dropdown">
 
-<a href="#">Service ▼</a>
+<a href="#">More ▼</a>
 
 <div class="dropdown-content">
 
@@ -531,6 +540,8 @@ footer{
 </li>
 
 </ul>
+
+</nav>
 
 <!-- HERO -->
 
@@ -927,12 +938,17 @@ and expanded online presence across India.
 <script>
 
 function showMessage(){
-alert("Thank you for contacting Shree Shyam Traders!");
+  alert("Thank you for contacting Shree Shyam Traders!");
 }
 
 function toggleMenu(){
-document.getElementById("mobileMenu")
-.classList.toggle("active");
+  document.getElementById("mobileMenu")
+  .classList.toggle("active");
+}
+
+function closeMenu(){
+  document.getElementById("mobileMenu")
+  .classList.remove("active");
 }
 
 </script>
