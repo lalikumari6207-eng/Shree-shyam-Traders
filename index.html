@@ -422,30 +422,115 @@ footer{
   }
 
 }
+  /* ===== MOBILE MENU ===== */
+
+.menu-toggle{
+  display:none;
+  font-size:34px;
+  color:#facc15;
+  cursor:pointer;
+}
+
+@media(max-width:992px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    padding:18px 6%;
+  }
+
+  nav ul{
+    position:absolute;
+    top:90px;
+    right:0;
+    width:260px;
+    background:#0b1120;
+    flex-direction:column;
+    padding:30px;
+    display:none;
+    border-radius:0 0 0 25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+}
+  /* ===== DROPDOWN ===== */
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  position:absolute;
+  top:40px;
+  left:0;
+  background:#111827;
+  min-width:220px;
+  display:none;
+  flex-direction:column;
+  border-radius:15px;
+  overflow:hidden;
+  z-index:1000;
+}
+
+.dropdown-content a{
+  padding:15px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.dropdown:hover .dropdown-content{
+  display:flex;
+}
 
 </style>
 
 </head>
 
 <body>
+  <!-- ===== MOBILE MENU BUTTON ===== -->
+<div class="menu-toggle" onclick="toggleMenu()">
+  ☰
+</div>
+<!-- ===== NAVBAR MENU UPDATE ===== -->
 
-<!-- NAVBAR -->
+<ul id="mobileMenu">
 
-<nav>
+<li><a href="#home">Home</a></li>
 
-  <div class="logo">
-    Shree Shyam Traders
-  </div>
+<li><a href="#about">About</a></li>
 
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#leaders">Leadership</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<li><a href="#work">Our Work</a></li>
 
-</nav>
+<li><a href="#story">Story</a></li>
+
+<li><a href="#services">Services</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+<li class="dropdown">
+
+<a href="#">Service ▼</a>
+
+<div class="dropdown-content">
+
+<a href="products.html">Our Product</a>
+
+<a href="#">Tender</a>
+
+<a href="#">Construction</a>
+
+<a href="#">Gem-Bidding</a>
+
+</div>
+
+</li>
+
+</ul>
 
 <!-- HERO -->
 
@@ -488,6 +573,65 @@ footer{
     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop">
 
   </div>
+
+</section>
+  <!-- ===== OUR PRODUCT SECTION ===== -->
+
+<section class="services" id="products">
+
+<div class="section-title">
+
+<p class="tag">
+Our Products
+</p>
+
+<h2>
+Outdoor Gym & School Equipment
+</h2>
+
+</div>
+
+<div class="service-grid">
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
+style="width:100%;border-radius:20px;margin-bottom:20px;">
+
+<h3>Outdoor Gym Setup</h3>
+
+<p>
+Professional outdoor gym installation for parks,
+schools and government projects.
+</p>
+
+<button class="primary-btn"
+onclick="window.location.href='products.html'">
+See More
+</button>
+
+</div>
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop"
+style="width:100%;border-radius:20px;margin-bottom:20px;">
+
+<h3>School Equipment</h3>
+
+<p>
+School benches, desks, boards, library setup,
+sports items and smart classroom products.
+</p>
+
+<button class="primary-btn"
+onclick="window.location.href='products.html'">
+See More
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -599,6 +743,66 @@ footer{
     </div>
 
   </div>
+
+</section>
+  <!-- ===== STORY ===== -->
+
+<section class="leaders" id="story">
+
+<div class="section-title">
+
+<p class="tag">
+Company Journey
+</p>
+
+<h2>
+Our Success Story
+</h2>
+
+</div>
+
+<div class="leader-grid">
+
+<div class="leader-card">
+
+<h3>2021</h3>
+
+<span>Company Founded</span>
+
+<p>
+Shree Shyam Traders was established with a vision
+to deliver trusted construction and trading services.
+</p>
+
+</div>
+
+<div class="leader-card">
+
+<h3>2024</h3>
+
+<span>Government Tender Projects</span>
+
+<p>
+Started participating in professional government
+tender and infrastructure development projects.
+</p>
+
+</div>
+
+<div class="leader-card">
+
+<h3>2026</h3>
+
+<span>Digital Expansion</span>
+
+<p>
+Company launched its professional business website
+and expanded online presence across India.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
@@ -723,7 +927,12 @@ footer{
 <script>
 
 function showMessage(){
-  alert("Thank you for contacting Shree Shyam Traders!");
+alert("Thank you for contacting Shree Shyam Traders!");
+}
+
+function toggleMenu(){
+document.getElementById("mobileMenu")
+.classList.toggle("active");
 }
 
 </script>
